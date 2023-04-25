@@ -1,32 +1,32 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import mainBg from "../../Images/main-bg.jpg";
 import {Link} from "react-router-dom";
-import axios from "axios";
+// import axios from "axios";
 import "./Overview.scss";
 
-const client = axios.create({
-   baseURL: "https://famwork-med.onrender.com/api/v1/auth",
-   headers: {
-      'Content-Type': 'application/json',
-      'Authorization': 'X-Access-Token'
-   },
-});
+// const client = axios.create({
+//    baseURL: "https://famwork-med.onrender.com/api/v1/auth",
+//    headers: {
+//       'Content-Type': 'application/json',
+//       'Authorization': 'X-Access-Token'
+//    },
+// });
 
 const Overview = () => {
-     const [user, setUser] = useState()
+   //   const [user, setUser] = useState()
       
      // GET with Axios
-  useEffect(() => {
-   const fetchUser = async () => {
-       try {
-           let response = await client.get('/booking/list');
-           setUser(response.data);
-       } catch (error)  {
-           console.log(error);
-       };
-   };
-   fetchUser();
-   }, []);
+//   useEffect(() => {
+//    const fetchUser = async () => {
+//        try {
+//            let response = await client.get('/booking/list');
+//            setUser(response.data);
+//        } catch (error)  {
+//            console.log(error);
+//        };
+//    };
+//    fetchUser();
+//    }, []);
 
   return (
     <div className="overview-container">

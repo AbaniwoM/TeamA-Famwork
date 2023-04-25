@@ -53,7 +53,7 @@ const SignIn = () => {
             <div>Team-A Health</div>
             <div className="signup-line"></div>
        </div>
-       <form onSubmit={PostData}>
+       <form id="login-form" onSubmit={PostData}>
             <h2>Sign In</h2>
             <div className="detail">
                 <h3>Email</h3>
@@ -67,8 +67,8 @@ const SignIn = () => {
                     { passwordType==="password"? <AiOutlineEyeInvisible className="icon-size" /> : <AiOutlineEye className="icon-size" /> }
                </button>
             </div>
-        </div>
-            <button className="button" type="submit" value="login" id="login" name="signup">Login</button>
+             </div>
+            <button className="button" type="submit" value="login" id="login" name="login">Login</button>
             <div className="signin">
                 <Link to="/sign-up">Don't have an account? Sign Up</Link>
             </div>
