@@ -1,6 +1,6 @@
 import React from 'react';
 import firstDoc from '../../Images/man-doc.png'
-import videoImg from '../../Images/video-icon.png'
+// import videoImg from '../../Images/video-icon.png'
 import "./DoctorProfile.scss"
 import Header from '../../Reusables/Header';
 import Sidebar from '../../Reusables/Sidebar';
@@ -30,18 +30,19 @@ const DoctorProfile = () => {
             <h3>Practice Place</h3>
             <p>Capsule Market, A Block, Tangail</p>
         </div>
-        <div className="detail">
+        <div className="detail dateAppoint">
             <h3>Date of Appointment</h3>
-            <input  name="date" type="date" required/>
+            <input name="date" type="date" required/>
         </div>
-        <div className="detail">
+        <div className="detail timeAppoint">
             <h3>Time of Appointment</h3>
             <input type="time" required/>
         </div>
-        <div className="video-call">
+        <button className="button appointBtn">Book Now!</button>
+        {/* <div className="video-call">
             <img src={videoImg} alt="videoImg" />
             <div>Video Call</div>
-        </div>
+        </div> */}
         </div>
        </div>
     </div>

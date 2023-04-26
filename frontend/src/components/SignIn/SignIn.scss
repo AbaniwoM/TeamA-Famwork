@@ -13,3 +13,17 @@
 .top-signin {
     margin: 4rem;
 }
+
+.signin-error {
+    @media screen and (max-width: 425px) {
+        max-width: 70%;
+        position: absolute;
+        margin-top: 0.3rem;
+    }
+}
+
+.logBtn {
+    @media screen and (max-width: 425px) {
+        margin-top: 3.2rem;
+    }
+}

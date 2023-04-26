@@ -5,6 +5,8 @@ import docImg from "../Images/doctor.png";
 // import 'bootstrap/dist/css/bootstrap.css';
 import { AiOutlineEyeInvisible, AiOutlineEye } from "react-icons/ai";
 import axios from "axios";
+import { Validation } from './SignUpValidation';
+
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -26,17 +28,18 @@ const SignUp = () => {
         firstName: "", lastName: "", email: "", password: "", age: "", gender: "", status: "", experience: "", specialization: ""
     });
 
-    let name, value;
+    let name, value: any;
 
     const handleInputs = (e: any) => {
         name = e.target.name;
         value = e.target.value;
-        console.log({name, value, v: e.target.value})
+        // console.log({name, value, v: e.target.value})
         setUser({...user, [name]:value});
     }
 
     const PostData = (event: { preventDefault: () => void; }) => {
-        console.log(user)
+        // console.log(user)
+        setErrors(Validation(errors));
         event.preventDefault();
         axios.post("https://famwork-med.onrender.com/api/v1/auth/register", user, {
             headers: {
@@ -49,14 +52,17 @@ const SignUp = () => {
             } else {
                 alert("No record exists!");
             }
-            console.log(res);
+            console.log();
         })
         .catch(error => {
             console.log(error)
         })
     }
 
-
+    const [errors, setErrors] = useState<{password: string }>({
+        password: '',
+    });
+    
   return (
     <div className="signup-container">
        <form id="register-form" onSubmit={PostData}>
@@ -77,11 +83,16 @@ const SignUp = () => {
             <h3>Password</h3>
             <div className="password-field">
             {/* onChange={handlePasswordChange} value={passwordInput} */}
-            <input name="password" type={passwordType}  value={user.password} onChange={handleInputs} />
+            <input name="password" 
+                type={passwordType}  
+                value={user.password}  
+                onChange={handleInputs}
+            />
                <button className="btn" onClick={togglePassword}>
                     { passwordType==="password"? <AiOutlineEyeInvisible className="icon-size" /> : <AiOutlineEye className="icon-size" /> }
                </button>
             </div> 
+            <div>{errors.password && <span className="red-text">{errors.password}</span>}</div>
         </div>
         <div className="detail">
             <h3>Age</h3>
